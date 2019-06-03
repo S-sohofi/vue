@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>booking</title>
+    <link rel="stylesheet" href="asset/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!--<div id="root">-->
+<!--<h1 class="text-center"> انتخاب تعداد اتاق:</h1>-->
+<!--<room>-->
+<!--<adult>-->
+
+<!--</adult>-->
+<!--</room>-->
+<!--</div>-->
+
+<div class="roomCounter container" id="asd">
+    <div class="rooms" id="room">
+        <label>تعداد اتاق:</label>
+        <div class="buttons" >
+            <button type="button" class="add">+</button>
+            <input type="number" id="rooms" min="0" value="1">
+            <button type="button" class="remove">-</button>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="childs" id="adults">
+        <div class="adult">
+            <label>بزرگسال</label>
+            <div class="buttons">
+                <button type="button" class="add">+</button>
+                <input type="number" min="0" value="1">
+                <button type="button" class="remove">-</button>
+            </div>
+        </div>
+        <div class="children">
+            <label>خردسال</label>
+            <div class="buttons">
+                <button type="button" class="add">+</button>
+                <input type="number" min="0" class="child-in" value="0">
+                <button type="button" class="remove">-</button>
+            </div>
+        </div>
+        <div class="infants">
+            <label>نوزاد</label>
+            <div class="buttons">
+                <button type="button" class="add">+</button>
+                <input type="number" min="0" id="infant-in" value="0">
+                <button type="button" class="remove">-</button>
+            </div>
+        </div>
+    </div>
+
+    <!--<div class="child-out">-->
+        <!--<label>تعداد خردسال</label>-->
+        <!--<div class="buttons">-->
+            <!--<button type="button" class="add">+</button>-->
+            <!--<input type="number" min="0">-->
+            <!--<button type="button" class="remove">-</button>-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <!--<div class="infant-out">-->
+        <!--<label>تعداد نوزاد</label>-->
+        <!--<div class="buttons">-->
+            <!--<button type="button" class="add">+</button>-->
+            <!--<input type="number" min="0">-->
+            <!--<button type="button" class="remove">-</button>-->
+        <!--</div>-->
+    <!--</div>-->
+
+</div>
+<div class="butt d-inline-block align-content-center text-center">
+    <button class="btn-info" type="submit" id="cc">ثبت</button>
+</div>
+
+<!--<script type="text/javascript" src="vue.js"></script>-->
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="asset/bootstrap.min.js"></script>
+<!--<script src="main.js" ></script>-->
+<script src="asset/script.js"></script>
+</body>
+</html>

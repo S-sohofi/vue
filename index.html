@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>start vue</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <style>
+        .unred {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<hr>
+
+<div id="test">
+    <tabs>
+        <tab name="about one" >
+            <p>content of tab one</p>
+        </tab>
+        <tab name="about two" >
+            <p>content of tab two</p>
+        </tab>
+        <tab name="about three" >
+            <p>content of tab three</p>
+        </tab>
+        <tab name="about four" :selected="true">
+            <p>content of tab three</p>
+        </tab>
+
+    </tabs>
+    <hr>
+    <button type="button" @click="showmodal = true"> show modal</button>
+    <modal title="modal title" body=" this is a body of modal" v-if="showmodal" @close="showmodal = false"></modal>
+
+    <button @click="change">filter</button>
+    <h1 id="titlee" :class="{'unred': uncomplete}"><span v-if="!uncomplete">un</span>complete Task</h1>
+    <ul>
+        <li v-if="uncomplete" v-for="task in tasks" v-text="task.description"></li>
+    </ul>
+    <ul>
+        <li v-if="!uncomplete" v-for="task in filterToUn" v-text="task.description"></li>
+    </ul>
+    <hr>
+    <ul>
+        <task-list>
+        </task-list>
+    </ul>
+</div>
+
+
+<script type="text/javascript" src="vue.js"></script>
+<script src="script.js"></script>
+<script src="jquery.min.js"></script>
+
+<script src="bootstrap.min.js"></script>
+</body>
+</html>
