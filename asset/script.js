@@ -15,13 +15,13 @@ $(document).ready(function () {
     // decrement value minus one
     $(document).on('click', '.buttons .remove', function () {
         var minusValue = parseInt($(this).prev('input').val());
-        if (!isNaN(minusValue) && minusValue > 1) {
+        if (!isNaN(minusValue) && minusValue > 0) {
             $(this).prev('input').val(minusValue - 1);
         } else {
             $(this).prev('input').val(1);
         }
         var father = $(this).parent().parent().prop('className');
-        var gfather = $(this).parent().parent().parent().prop('className');
+        var gfather = $(this).parent().parent().parent().attr('id');
         removeEle(minusValue, father, gfather)
     });
 
