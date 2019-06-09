@@ -1,6 +1,9 @@
 $(document).ready(function () {
+    // reset value onload
     $("#rooms").val(1);
     $("#infant-in,#child-in").val(0);
+
+    // increment value plus one
     $(document).on('click', '.buttons .add', function () {
         var plusValue = parseInt($(this).next('input').val());
         if (!isNaN(plusValue)) {
@@ -26,6 +29,7 @@ $(document).ready(function () {
         removeEle(minusValue, father, gfather)
     });
 
+    // inert elements
     function insertEle(value, father, gfather) {
         if (father == 'rooms') {
 
@@ -40,12 +44,12 @@ $(document).ready(function () {
 
     }
 
-
+//remove elements
     function removeEle(value, father,gfather) {
         $("#"+gfather+" #"+ father + "-" + value).remove();
     }
 
-
+    //add room function
     function addroom(value, father) {
         $(".rooms").after(`
     <div class="childs"
@@ -80,6 +84,7 @@ $(document).ready(function () {
     `);
     }
 
+    // add child function
     function addchild(value, father, gfather) {
         $("#" + gfather).append(`
     <div class="child-out" 
@@ -92,6 +97,7 @@ $(document).ready(function () {
     `)
     };
 
+    //add infant function
     function addInfant(value, father, gfather) {
         $("#" + gfather).append(`
     <div class="infant-out" 
@@ -104,6 +110,8 @@ $(document).ready(function () {
     `)
     };
 
+
+    //on submit
     $("#cc").click(function(){
         var rooms = $('#room input').val();
         var output = [];
