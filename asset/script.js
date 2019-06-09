@@ -1,5 +1,6 @@
 $(document).ready(function () {
     $("#rooms").val(1);
+    $("#infant-in,#child-in").val(0);
     $(document).on('click', '.buttons .add', function () {
         var plusValue = parseInt($(this).next('input').val());
         if (!isNaN(plusValue)) {

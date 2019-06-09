@@ -43,7 +43,15 @@ input[type="number"] {
     display: inline-block;
     margin-bottom: 10px;
 }
-.child-out,.infant-out{
+.infant-out{
+    background: #9a9a9a;
+    padding: 15px;
+    margin-left: 60px;
+}
+/*.child-out{*/
+    /*float: left;*/
+/*}*/
+.child-out{
     background: #b3b3b3;
     padding: 15px;
     margin-left: 60px;
