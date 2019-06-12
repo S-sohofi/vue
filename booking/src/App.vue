@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <div class="roomCounter container" id="asd">
+        <div class="roomCounter container">
             <div class="rooms" id="room">
                 <label>تعداد اتاق:</label>
                 <div class="buttons" >
@@ -12,8 +12,9 @@
 
             <hr>
             <div class="roomDetail">
-                <users v-for="room in num" :key="room"></users>
+                <users v-for="(room,index) in num" :key="'room'+ index" @output="Allouput"></users>
             </div>
+            <button type="submit" id="buttonId" ref="submitbutton" @click="creatdata" >ثبت</button>
         </div>
     </div>
 </template>
@@ -27,7 +28,8 @@
         data() {
             return {
                 num: 0,
-                rooms:[]
+                clicked:false,
+                roomdetail:[],
             }
         },
         methods: {
@@ -41,7 +43,16 @@
                 else {
                     this.num = 0;
                 }
+            },
+            creatdata(){
+                var j = JSON.stringify(this.roomdetail);
+                console.log(j);
+
+            },
+            Allouput(value){
+                this.roomdetail.push(value)
             }
+
         }
     }
 </script>

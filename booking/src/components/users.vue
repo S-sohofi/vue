@@ -4,7 +4,7 @@
             <label>بزرگسال</label>
             <div class="buttons">
                 <button type="button" class="add" @click="adultvalue++">+</button>
-                <input type="number" min="0"  v-model="adultvalue">
+                <input type="number" min="0"  v-model="adultvalue"  @change="updatevalues">
                 <button type="button" class="remove" @click="adultvalue--">-</button>
             </div>
         </div>
@@ -12,7 +12,7 @@
             <label>خردسال</label>
             <div class="buttons">
                 <button type="button" class="add" @click="childvalue++">+</button>
-                <input type="number" min="0" class="child-in"  v-model="childvalue">
+                <input type="number" min="0" class="child-in"  v-model="childvalue" >
                 <button type="button" class="remove" @click="childvalue--">-</button>
             </div>
         </div>
@@ -20,12 +20,12 @@
             <label>نوزاد</label>
             <div class="buttons">
                 <button type="button" class="add" ref="inc" @click="infantvalue++">+</button>
-                <input type="number" min="0" v-model="infantvalue">
+                <input type="number" min="0" v-model="infantvalue" >
                 <button type="button" class="remove" @click="infantvalue --">-</button>
             </div>
         </div>
-        <child v-for="(children,index) in childvalue" :key="'child'+index"></child>
-        <infant v-for="(infants,index) in infantvalue" :key="'infant'+index"></infant>
+        <child v-for="(children,index) in childvalue" :key="'child'+index" @updatechild="updateChildAge"></child>
+        <infant v-for="(infants,index) in infantvalue" :key="'infant'+index" @updateinfant="updateInfantAge"></infant>
 
     </div>
 
@@ -36,13 +36,16 @@
     import infant from '../components/infant.vue'
     export default {
         name: "users",
+        props:["output"],
         components:{child,infant},
-        // props: ['id','adultvalue','childvalue','infantvalue'],
         data() {
             return {
                 adultvalue: 0,
                 childvalue: 0,
                 infantvalue: 0,
+                childage:[],
+                infantage:[],
+                // output:[],
 
             }
         },
@@ -60,8 +63,48 @@
                     value = 0;
                 }
                 console.log(value);
+            },
+
+            updateChildAge(value) {
+                this.childage.push(value);
+            },
+            updateInfantAge(value){
+                this.infantage.push(value);
+            },
+            updatevalues(){
+                alert('has changed');
             }
         },
+        mounted(){
+                var adults = this.adultvalue;
+                var children = this.childvalue;
+                var infants = this.infantvalue;
+                var childage = this.childage;
+                var infantsage = this.infantage;
+                var output=[];
+                output.push(adults,children,infants,childage,infantsage);
+                var str = JSON.stringify(output);
+                this.$emit('output',str);
+                console.log (this.str);
+
+        },
+        // watch:{
+        //     clicked:function(){
+        //         if(this.clicked){
+        //
+        //         }
+        //     }
+        // },
+        // updated:function(){
+        //     var adults = this.adultvalue;
+        //     var children = this.childvalue;
+        //     var infants = this.infantvalue;
+        //     var childage = this.childage;
+        //     var infantsage = this.infantage;
+        //     this.output=[adults,children,infants,childage,infantsage];
+        //     var str = JSON.stringify(this.output);
+        //     this.$emit('output',str)
+        // },
 
     }
 </script>
