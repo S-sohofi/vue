@@ -12,10 +12,9 @@
         name: "child",
         data(){
             return{
-                currentage:'',
+                currentage:0,
             }
         },
-
         methods: {
 
             onInput() {
